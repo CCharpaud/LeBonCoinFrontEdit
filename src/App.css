@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+/* REPERES */
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+/*  RESET */
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* GLOBAL RULES */
+
+.wrapper {
+  width: 1024px;
+  margin: 5px auto;
+  padding: 5px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pv-50 {
+  padding: 50px 0;
+}
+
+.p-15 {
+  padding: 15px;
+}
+
+.pv-15 {
+  padding: 15px 0;
+}
+
+.br-5 {
+  border-radius: 5px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.h-255 {
+  height: 255px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+/*----------------------------------*/

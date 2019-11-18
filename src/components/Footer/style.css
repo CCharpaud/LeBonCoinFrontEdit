@@ -1,0 +1,19 @@
+/* FOOTER */
+
+footer {
+  background-color: #474747;
+}
+
+.wrapper-footer {
+  width: 1024px;
+  margin: 0 auto;
+  line-height: 80px;
+}
+
+footer div p,
+footer a {
+  padding-right: 4px;
+  margin: 0;
+  color: #fff;
+  font-size: 19px;
+}

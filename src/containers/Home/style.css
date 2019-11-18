@@ -1,0 +1,105 @@
+/* HOME - Partie Search box */
+
+.wrapper-home {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.search-box {
+  width: 768px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.search-box input {
+  width: 300px;
+  height: 44px;
+  padding-left: 15px;
+  margin-right: 20px;
+  font-family: Roboto;
+  font-size: 16px;
+  background-color: #f2f0f0;
+  color: #80909f;
+  border: none;
+}
+
+.search-box button {
+  width: 220px;
+  height: 44px;
+  font-family: Roboto;
+  font-size: 16px;
+  background-color: #4182d7;
+  color: #fff;
+}
+
+/* HOME - Partie Offers */
+
+.offers article {
+  display: flex;
+  height: 150px;
+}
+
+.offers article .container-img {
+  display: flex;
+  align-items: center;
+  background-color: #cad1d9;
+}
+
+.offers article img {
+  width: 200px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.offers .description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.offers .description div {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-family: Roboto;
+}
+
+.offers a {
+  color: #000;
+  text-decoration: none;
+}
+
+.offers .description h3 {
+  margin: 0 0 5px 0;
+}
+
+.offers .description div span {
+  color: #f56b2a;
+}
+
+.offers .description .date {
+  font-size: 14px;
+}
+
+/* HOME - Partie Pages */
+
+.pages {
+  line-height: 80px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: #36689a;
+}
+
+.pages ul {
+  display: flex;
+  justify-content: center;
+}
+
+.pages span {
+  font-weight: bolder;
+}
+
+/* li {
+  background: #f56b2a;
+} */
