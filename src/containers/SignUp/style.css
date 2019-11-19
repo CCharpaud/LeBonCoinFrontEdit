@@ -1,0 +1,30 @@
+.containOfSign {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 1000px;
+  height: 576px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.left p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 19px;
+}

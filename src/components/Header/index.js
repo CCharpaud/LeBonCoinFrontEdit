@@ -4,7 +4,7 @@ import "../../App.css";
 import "../Header/style.css";
 import Logo from "../../images/Logo.png";
 
-const Header = () => {
+const Header = props => {
   return (
     <header className="box-shadow">
       <ul className="wrapper menu">
@@ -33,12 +33,26 @@ const Header = () => {
             </li>
           </ul>
         </li>
-        <li>
-          <span>
-            <ion-icon name="person"></ion-icon>
-          </span>
-          Se connecter
-        </li>
+        {props.user.token ? (
+          <li className="cursor" onClick={() => {}}>
+            <span>
+              <ion-icon name="person"></ion-icon>
+            </span>
+            Se deconnecter
+          </li>
+        ) : (
+          <li
+            className="cursor"
+            onClick={() => {
+              props.setShowModal(true);
+            }}
+          >
+            <span>
+              <ion-icon name="person"></ion-icon>
+            </span>
+            Se connecter
+          </li>
+        )}
       </ul>
     </header>
   );

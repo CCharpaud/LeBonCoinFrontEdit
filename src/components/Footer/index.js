@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="wrapper-footer center">
-        <p>Réplique de leboncoin - Codée par Linou - </p>
+        <p>Réplique de leboncoin - Merci Linou - </p>
         <a
           href="https://lereacteur.io"
           target="_blank"
