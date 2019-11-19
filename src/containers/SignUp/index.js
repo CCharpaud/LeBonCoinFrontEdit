@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "../SignUp/style.css";
+import axios from "axios";
+import Cookie from "js-cookie";
+import { useHistory } from "react-router-dom";
 
 export default function SignUp() {
+  const [user, setUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPasseword] = useState("");
+  const [secondPassword, setSecondPassword] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
+  const history = useHistory();
+
   return (
     <div>
       <div className="wrapper">
@@ -76,37 +86,78 @@ export default function SignUp() {
           </div>
           <div className="Right">
             <h2> Créez un compte </h2>
-            <form>
+            <form
+              onSubmit={async event => {
+                event.preventDefault();
+                if (secondPassword === password && checkbox === true) {
+                  try {
+                    const response = await axios.post(
+                      "https://leboncoin-api.herokuapp.com/api/user/sign_up",
+                      {
+                        email: email,
+                        username: user,
+                        password: password
+                      }
+                    );
+
+                    Cookie.set(response.data.token);
+                  } catch (error) {
+                    alert("Vous disposez déja d'un compte");
+                  }
+                } else {
+                  alert("Probleme mdp");
+                }
+              }}
+            >
               <label>
                 Pseudo
-                <input type="text" />
+                <input
+                  type=""
+                  value={user}
+                  onChange={event => {
+                    setUser(event.target.value);
+                  }}
+                />
               </label>
               <label>
                 Adresse email
-                <input type="email" />
+                <input
+                  type="email"
+                  value={email}
+                  onChange={event => {
+                    setEmail(event.target.value);
+                  }}
+                />
               </label>
               <label>
                 Mot de passe *
-                <input type="password" />
+                <input
+                  type="password"
+                  value={password}
+                  onChange={event => {
+                    setPasseword(event.target.value);
+                  }}
+                />
               </label>
               <label>
                 Confirmer le mot de passe *
-                <input type="password" />
+                <input
+                  type="password"
+                  value={secondPassword}
+                  onChange={event => {
+                    setSecondPassword(event.target.value);
+                  }}
+                />
               </label>
               <div className="confirm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#F56B2A"
-                  strokeWidth="2.5"
-                  strokeLinecap="square"
-                  strokeLinejoin="arcs"
-                >
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                </svg>
+                <input
+                  type="checkbox"
+                  value={checkbox}
+                  onClick={() => {
+                    setCheckbox(!checkbox);
+                  }}
+                />
+
                 <p>
                   J’accepte les Conditions Générales de Vente et les Conditions
                   Générales d’Utilisation » *

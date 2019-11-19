@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 import "../Header/style.css";
 import Logo from "../../images/Logo.png";
+import Cookie from "js-cookie";
 
 const Header = props => {
   return (
@@ -34,7 +35,13 @@ const Header = props => {
           </ul>
         </li>
         {props.user.token ? (
-          <li className="cursor" onClick={() => {}}>
+          <li
+            className="cursor"
+            onClick={() => {
+              props.setUser({});
+              Cookie.remove("token");
+            }}
+          >
             <span>
               <ion-icon name="person"></ion-icon>
             </span>

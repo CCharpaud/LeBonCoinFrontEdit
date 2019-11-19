@@ -28,3 +28,13 @@
 h2 {
   font-size: 19px;
 }
+
+.Right {
+  display: flex;
+  flex-direction: column;
+}
+
+.Right form {
+  display: flex;
+  flex-direction: column;
+}

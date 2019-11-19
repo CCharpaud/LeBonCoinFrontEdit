@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import Cookie from "js-cookie";
@@ -13,8 +13,8 @@ import "../src/App.css";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-  const [email, setEmail] = useState("farid@lereacteur.io");
-  const [password, setPassword] = useState("azerty");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const token = Cookie.get("token");
   const [user, setUser] = useState({ token: token });
 
@@ -104,7 +104,12 @@ function App() {
           </div>
         </div>
       )}
-      <Header showModal={showModal} setShowModal={setShowModal} user={user} />
+      <Header
+        showModal={showModal}
+        setShowModal={setShowModal}
+        user={user}
+        setUser={setUser}
+      />
       <Switch>
         <Route path="/offer/:id">
           <Offer />
