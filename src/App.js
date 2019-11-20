@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+  // useHistory
+} from "react-router-dom";
 import axios from "axios";
 import Cookie from "js-cookie";
 
@@ -17,6 +22,7 @@ function App() {
   const [password, setPassword] = useState("");
   const token = Cookie.get("token");
   const [user, setUser] = useState({ token: token });
+  // let history = useHistory();
 
   // useEffect(() => {
   //   console.log("user ", user);
@@ -67,7 +73,7 @@ function App() {
                   if (response.data.token) {
                     Cookie.set("token", response.data.token);
                     setShowModal(false);
-                    console.log(response.data);
+
                     setUser({ token: response.data.token });
                   } else {
                     alert("An error occurred");
@@ -100,7 +106,14 @@ function App() {
               <input className="sub" type="submit" value={"Se connecter"} />
             </form>
             <span className="question">Vous n'avez pas de compte ?</span>
-            <button className="creat"> Créer un compte </button>
+            <button
+              className="creat"
+              // onClick={() => {
+              //   history.push("/user/sign_up");
+              // }}
+            >
+              Créer un compte
+            </button>
           </div>
         </div>
       )}

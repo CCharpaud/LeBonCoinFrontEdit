@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../SignUp/style.css";
 import axios from "axios";
 import Cookie from "js-cookie";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 export default function SignUp() {
   const [user, setUser] = useState("");
@@ -10,7 +10,7 @@ export default function SignUp() {
   const [password, setPasseword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
-  const history = useHistory();
+  // const history = useHistory();
 
   return (
     <div>
