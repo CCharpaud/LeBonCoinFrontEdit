@@ -13,12 +13,16 @@ import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import SignUp from "./containers/SignUp";
 import Modal from "./components/Modal";
+import Publish from "./containers/Publish";
 import "../src/App.css";
 
-function App(props) {
+function App() {
   const token = Cookie.get("token");
-
-  const [user, setUser] = useState({ token: token });
+  const username = Cookie.get("username");
+  const [user, setUser] = useState({
+    token: token,
+    username: username
+  });
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -40,7 +44,10 @@ function App(props) {
           <Offer />
         </Route>
         <Route path="/user/sign_up">
-          <SignUp />
+          <SignUp setUser={setUser} />
+        </Route>
+        <Route path="/publish">
+          <Publish user={user} />
         </Route>
         <Route path="/">
           <Home />

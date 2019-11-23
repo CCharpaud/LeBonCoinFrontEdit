@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
-  // useHistory
+  Route,
+  useHistory
 } from "react-router-dom";
 import Cookie from "js-cookie";
 import axios from "axios";
@@ -11,7 +11,7 @@ import axios from "axios";
 export default function Modal(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // let history = useHistory();
+  let history = useHistory();
 
   // useEffect(() => {
   //   console.log("user ", user);
@@ -52,7 +52,7 @@ export default function Modal(props) {
 
                 try {
                   const response = await axios.post(
-                    "https://leboncoin-api.herokuapp.com/api/user/log_in",
+                    "http://localhost:4000/user/log_in",
                     {
                       email: email,
                       password: password
@@ -97,9 +97,10 @@ export default function Modal(props) {
             <span className="question">Vous n'avez pas de compte ?</span>
             <button
               className="creat"
-              // onClick={() => {
-              //   history.push("/user/sign_up");
-              // }}
+              onClick={() => {
+                history.push("/user/sign_up");
+                props.setShowModal(false);
+              }}
             >
               Créer un compte
             </button>
