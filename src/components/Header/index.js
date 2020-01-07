@@ -4,8 +4,11 @@ import "../../App.css";
 import "../Header/style.css";
 import Logo from "../../images/Logo.png";
 import Cookie from "js-cookie";
+import { useHistory } from "react-router-dom";
 
 const Header = props => {
+  const history = useHistory();
+  // console.log("username ", props.user);
   return (
     <header className="box-shadow">
       <ul className="wrapper menu">
@@ -19,7 +22,12 @@ const Header = props => {
               </Link>
             </li>
             <li>
-              <button type="button">
+              <button
+                onClick={() => {
+                  history.push("/publish");
+                }}
+                type="button"
+              >
                 <span>
                   <ion-icon name="add-circle-outline"></ion-icon>
                 </span>
@@ -32,6 +40,7 @@ const Header = props => {
               </span>
               Rechercher
             </li>
+            {props.user.username ? <li>{props.user.username}</li> : null}
           </ul>
         </li>
         {props.user.token ? (

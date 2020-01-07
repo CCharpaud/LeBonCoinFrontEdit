@@ -28,9 +28,6 @@ const Offer = () => {
     fetchData();
   }, [id]);
 
-  // console.log(offer, "offer"); ok
-  // console.log(offer.title); ok
-  // console.log(offer.created); ok
   const dateCreated = new Date(offer.created);
   const date =
     dateCreated.toLocaleDateString() + " à " + dateCreated.toLocaleTimeString();
