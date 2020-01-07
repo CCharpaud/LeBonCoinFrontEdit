@@ -1,16 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../SignUp/style.css";
 import axios from "axios";
 import Cookie from "js-cookie";
 import { useHistory } from "react-router-dom";
+import { conditionalExpression } from "@babel/types";
 
-export default function SignUp() {
-  const [user, setUser] = useState("");
+export default function SignUp(props) {
+  const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPasseword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
   const history = useHistory();
+
+  // useEffect(() => {
+  //   console.log(username);
+  // });
 
   return (
     <div>
@@ -92,20 +97,27 @@ export default function SignUp() {
                 if (secondPassword === password && checkbox === true) {
                   try {
                     const response = await axios.post(
-                      "https://leboncoin-api.herokuapp.com/api/user/sign_up",
+                      "http://localhost:4000/user/sign_up",
                       {
                         email: email,
-                        username: user,
+                        username: username,
                         password: password
                       }
                     );
 
-                    Cookie.set(response.data.token);
+                    Cookie.set("token", response.data.token);
+                    Cookie.set("username", response.data.account.username);
+                    props.setUser({
+                      token: response.data.token,
+                      username: response.data.account.username
+                    });
+                    history.push("/offers");
+                    // alert(response.data.account.username);
                   } catch (error) {
-                    alert("Vous disposez déja d'un compte");
+                    alert(error.message);
                   }
                 } else {
-                  alert("Probleme mdp");
+                  alert("Merci de renseigner les champs");
                 }
               }}
             >
@@ -113,9 +125,9 @@ export default function SignUp() {
                 Pseudo
                 <input
                   type=""
-                  value={user}
+                  value={username}
                   onChange={event => {
-                    setUser(event.target.value);
+                    setUserName(event.target.value);
                   }}
                 />
               </label>
@@ -168,6 +180,11 @@ export default function SignUp() {
                 className="sub"
                 type="submit"
                 value="Créer mon Compte Personnel"
+                // onClick={() => {
+                //   if (secondPassword === password && checkbox === true) {
+                //     history.push("/offers");
+                //   }
+                // }}
               />
             </form>
           </div>

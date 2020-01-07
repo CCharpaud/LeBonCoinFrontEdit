@@ -6,12 +6,12 @@ import "../Home/style.css";
 import NoEyes from "../../images/pas-de-visuel.png";
 
 const Home = () => {
-  console.log("1");
+  // console.log("1");
   const [isLoading, setIsLoading] = useState(true);
   const [listOffers, setListOffers] = useState([]);
 
   useEffect(() => {
-    console.log("2");
+    //console.log("2");
     const fetchData = async () => {
       setIsLoading(true);
       try {
